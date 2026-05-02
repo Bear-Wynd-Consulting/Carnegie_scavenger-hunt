@@ -1,0 +1,23 @@
+{
+  "name": "carnegie-scavenger-hunt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:migrate": "node src/lib/migrate.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "next": "14.2.21",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.21"
+  }
+}

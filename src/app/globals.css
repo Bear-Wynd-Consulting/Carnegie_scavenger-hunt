@@ -1,0 +1,56 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: #1a1a2e;
+  color: #e8d5b7;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+/* Hide scrollbar but allow scrolling */
+::-webkit-scrollbar { width: 0; height: 0; }
+
+input::placeholder { color: #555; }
+input:focus { border-color: #c9a96e !important; }
+
+button { -webkit-tap-highlight-color: transparent; }
+button:active { opacity: 0.85; }
+
+/* Photo grid animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.photo-item { animation: fadeIn 0.3s ease; }
+
+/* Progress bar shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.progress-fill {
+  background: linear-gradient(
+    90deg,
+    #c9a96e 0%, #d4a843 40%, #e8c36a 50%, #d4a843 60%, #c9a96e 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Card hover/press */
+.lib-card {
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.lib-card:active {
+  transform: scale(0.98);
+  background: #1a2545 !important;
+}
