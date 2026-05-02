@@ -4,7 +4,7 @@
 
 A mobile-first progressive web app for tracking visits to 94 Carnegie Libraries across Ontario. Public-facing — anyone with the link can use it. No authentication required; users get an anonymous UUID on first visit.
 
-**Live URL**: (set after first deploy)
+**Live URL**: https://carnegie-hunt.vercel.app
 **Repo**: https://github.com/Bear-Wynd-Consulting/Carnegie_scavenger-hunt.git
 **Vercel Team**: bear-wynd-consultings-projects
 **Neon Org**: org-broad-violet-23323853
