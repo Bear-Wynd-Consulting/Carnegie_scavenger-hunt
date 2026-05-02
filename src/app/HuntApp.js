@@ -145,9 +145,7 @@ export default function HuntApp() {
   function openDirections(lib, mode) {
     const dest = `${lib.lat},${lib.lng}`;
     const travelmode = mode === 'walk' ? 'walking' : 'driving';
-    const url = userLoc
-      ? `https://www.google.com/maps/dir/?api=1&origin=${userLoc.lat},${userLoc.lng}&destination=${dest}&travelmode=${travelmode}`
-      : `https://www.google.com/maps/dir/?api=1&destination=${dest}&travelmode=${travelmode}`;
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${dest}&travelmode=${travelmode}`;
     window.open(url, '_blank');
   }
 
