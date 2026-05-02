@@ -29,7 +29,17 @@ npm install
 # ---- 3. Run Neon migration ----
 echo ""
 echo "🗄️  Running database migration..."
-export DATABASE_URL="postgresql://neondb_owner:npg_Ajqikz1L9XKx@ep-billowing-field-am5b5dz3-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require"
+
+# Check if .env file exists and source it
+if [ -f .env ]; then
+  export $(grep -v '^#' .env | xargs)
+fi
+
+if [ -z "$DATABASE_URL" ]; then
+  echo "❌ DATABASE_URL is not set. Please set it in the environment or in a .env file."
+  exit 1
+fi
+
 node src/lib/migrate.mjs
 
 # ---- 4. Verify build ----
@@ -74,7 +84,7 @@ vercel link --yes --scope bear-wynd-consultings-projects 2>/dev/null || true
 # Set the DATABASE_URL env var in Vercel
 echo ""
 echo "Setting DATABASE_URL in Vercel..."
-echo "postgresql://neondb_owner:npg_Ajqikz1L9XKx@ep-billowing-field-am5b5dz3-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require" | vercel env add DATABASE_URL production --scope bear-wynd-consultings-projects 2>/dev/null || echo "  (env var may already exist — check Vercel dashboard if deploy fails)"
+echo "$DATABASE_URL" | vercel env add DATABASE_URL production --scope bear-wynd-consultings-projects 2>/dev/null || echo "  (env var may already exist — check Vercel dashboard if deploy fails)"
 
 # Deploy to production
 vercel --prod --scope bear-wynd-consultings-projects
